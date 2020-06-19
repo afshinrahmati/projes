@@ -1,5 +1,5 @@
 //create admin1
-const User = require("../models/users");
+// const User = require("../models/users");
 
 const initlishz = async() => {
 

@@ -1,0 +1,103 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+canvas {
+    background-image: url('/public/css/login/fa40e0ff-3615-4be7-bb7f-4842398bdee1.jpeg');
+}
+
+.shadow {
+    color: rgb(235, 8, 8);
+    font: bold 47px Helvetica, Arial, Sans-Serif;
+    text-shadow: 1px 1px #fe4902, 2px 2px #0245fe, 3px 3px #fe024e;
+}
+
+.shadow:hover {
+    position: relative;
+    top: -3px;
+    left: -3px;
+    text-shadow: 1px 1px #000000, 2px 2px #5a02fe, 3px 3px #0213fe, 4px 4px #fe4902, 5px 5px #fe4902, 6px 6px #fe4902;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.box {
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+img#m1 {
+    position: absolute;
+    width: 3%;
+    background: red;
+    border-radius: 144px;
+    margin-top: 15px;
+}
+
+.box h1 {
+    color: #191919;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+    background: #e6083b2e;
+    /* display: block; */
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #ff000038;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: #1aa5a5;
+    border-radius: 24px;
+    transition: 0.25s;
+    font-family: monospace;
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+    width: 280px;
+    border-color: #0e12f3;
+}
+
+.box input[type="submit"] {
+    background: #0008ff38;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #0322ffa6;
+    padding: 14px 40px;
+    outline: none;
+    color: #00ff08;
+    font-weight: bold;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    font-family: monospace;
+}
+
+.box input[type="submit"]:hover {
+    background: #6d0714ce;
+    border: 2px solid rgba(255, 0, 0, 0.712);
+    color: blue;
+    font-weight: bold;
+}

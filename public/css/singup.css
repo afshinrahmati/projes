@@ -1,0 +1,254 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('../css/singup.jpg');
+    background-size: cover;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Full-width input fields */
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 19px;
+    margin: 0px 0 20px 0;
+    display: inline-block;
+    border: none;
+    background: #62e8bc;
+    color: red;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+
+
+/* Add a background color when the inputs get focus */
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: rgba(0, 255, 136, 0.986);
+    outline: none;
+}
+
+
+/* Set a style for all buttons */
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+button:hover {
+    opacity: 1;
+}
+
+
+/* Extra styles for the cancel button */
+
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #f44336;
+}
+
+
+/* Float cancel and signup buttons and add an equal width */
+
+.cancelbtn,
+.signupbtn {
+    float: left;
+    border-radius: 85px 0px;
+    outline: none;
+}
+
+
+/* Add padding to container elements */
+
+.container {
+    padding: 16px;
+}
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #212148;
+    padding-top: 50px;
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    background-color: #14213e;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    width: 75%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* Style the horizontal ruler */
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+
+/* The Close Button (x) */
+
+.close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+
+
+/* Clear floats */
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+
+@media screen and (max-width: 300px) {
+    .cancelbtn,
+    .signupbtn {
+        width: 100%;
+    }
+}
+
+
+/* up */
+
+img.vert-move {
+    -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate;
+}
+
+img.vert-move {
+    -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate;
+}
+
+@-webkit-keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes mover {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+div#woman,
+#man {
+    text-align: end;
+}
+
+.text-3d {
+    font-size: 8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) skewY(-6deg);
+    transform-origin: bottom left;
+}
+
+img.vert-move {
+    margin-left: 16%;
+    margin-top: 122px;
+}
+
+.text-3d {
+    color: #26ff00;
+    text-shadow: /* This set has more blur distance to create glowing effect */
+    1px -1px 10px rgba(255, 255, 255, 0.4), 0px -1px 10px rgba(255, 255, 255, 0.4), -1px -1px 10px rgba(255, 255, 255, 0.4), 0px -2px 3px #fff, -1px -2px 3px #fff, -2px -2px 3px #fff, /* This set has darken color to create depth */
+    -1px -3px 2px #ddd, -2px -3px 2px #ddd, -3px -3px 2px #ddd, -2px -4px 2px #fff, -3px -4px 2px #fff, -4px -4px 2px #fff, -3px -5px 1px #fff, -4px -5px 1px #fff, -5px -5px 1px #fff;
+}
+
+.text-3d:before {
+    content: "Hello";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform: skewX(30deg);
+    transform-origin: bottom left;
+}
+
+.text-3d:before {
+    z-index: -1;
+    color: transparent;
+    text-shadow: 15px 0px 20px #db0e6ee7, 15px 0px 25px rgb(255, 116, 3), 15px 0px 35px rgba(243, 9, 173, 0.89), 15px 0px 45px rgba(233, 5, 5, 0.664);
+}
+
+.text-3d {
+    /* position: absolute; */
+    margin-left: -25%;
+    margin-top: -16%;
+}
+
+@media screen and (max-width: 300px) {
+    .text-3d {
+        width: 100%;
+    }
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #db0e6ee7;
+    opacity: 1;
+    /* Firefox */
+}
+
+img#log {
+    width: 201px;
+    margin-left: 30%;
+}
+
+div#logg {
+    margin-left: 26%;
+    margin-top: -238px;
+}

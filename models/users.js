@@ -44,7 +44,8 @@ const userschema = new Schema({
         unique: true
     },
     role: {
-        type: String
+        type: String,
+        enum: ['admin', 'programer']
 
     },
     creatAT: {
@@ -57,4 +58,4 @@ const userschema = new Schema({
 
 
 })
-module.exports = mongoose.model('users', userschema)
+module.exports = users = mongoose.model('users', userschema)
