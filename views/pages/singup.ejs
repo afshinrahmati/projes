@@ -7,14 +7,14 @@
     <title>singup</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="/public/css/singup.css">
+    <link rel="stylesheet" href="/css/singup.css">
 </head>
 
 
 <body>
     <div class="text-3d">ثبت نام</div>
 
-    <img src="/public/css/user-icon.png" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="vert-move" />
+    <img src="/css/user-icon.png" onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="vert-move" />
     <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         <div class="modal-content">
@@ -39,13 +39,13 @@
 
                 <div class="chc" style="text-align: right;">
 
-                    <img src="/public/css/man.png" style="text-align: right;">
+                    <img src="/css/man.png" style="text-align: right;">
                     <input type="checkbox" name="male" id="myCheck">
                     <label for="male" style="color: whitesmoke;">مرد</label><br>
 
 
 
-                    <img src="/public/css/woman.png" style="text-align: right;">
+                    <img src="/css/woman.png" style="text-align: right;">
                     <input type="checkbox" name="female" id="mychi">
                     <label for="female" style="color: whitesmoke;">  زن</label><br>
 
@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="text-3d" id="logg"> ورود</div>
-    <a href="login"> <img src="/public/css/Login-icon.png" class="vert-move" id="log"></a>
+    <a href="login"> <img src="/css/Login-icon.png" class="vert-move" id="log"></a>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -96,6 +96,7 @@
             if (man.checked == false && woman.checked === false) {
                 alert("لطفا جنسیت خود را انتخاب فرمایید");
                 event.preventDefault();
+                return;
             }
             if (man.checked == true && woman.checked === true) {
                 alert("همه ما یک جنسیت داریم");
@@ -138,6 +139,7 @@
             $.post({
                 url: "/record",
                 contentType: 'application/json',
+                dataType: 'json',
                 data: JSON.stringify({
                     "firstname": d1,
                     "lastname": d2,
@@ -148,17 +150,17 @@
                     "sex": man1
                 }),
                 success: function(src) {
-                    //delet
-                    alert("ثبت نام موفقیت آمیز بود");
-                    location.reload(30);
-
+                    $("input").val() = "";
                 },
-                err: function(err) {
-                    console.log(err);
+                error: function(err) {
+                    alert(err.responseText);
+
+
                 }
             });
 
         });
+
     });
 </script>
 

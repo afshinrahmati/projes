@@ -1,18 +1,3 @@
-$(document).ready(function() {
-    $("#formBox").hide();
-    $("h4").hide();
-    $("#log").click(function() {
-        $("#formBox").show(1000);
-        $("h4").show(1000);
-        $("#log").hide(1000);
-    });
-    // hide
-    $("#back").click(function() {
-        $("#formBox").hide(1000);
-        $("h4").hide(1000);
-        $("#log").show(1000);
-    });
-});
 var canvas = document.getElementById('nokey'),
     can_w = parseInt(canvas.getAttribute('width')),
     can_h = parseInt(canvas.getAttribute('height')),
@@ -267,12 +252,12 @@ goMovie();
 
 // Mouse effect
 canvas.addEventListener('mouseenter', function() {
-    console.log('mouseenter');
+
     mouse_in = true;
     balls.push(mouse_ball);
 });
 canvas.addEventListener('mouseleave', function() {
-    console.log('mouseleave');
+
     mouse_in = false;
     var new_balls = [];
     Array.prototype.forEach.call(balls, function(b) {
