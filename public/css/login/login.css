@@ -79,7 +79,7 @@ img#m1 {
     border-color: #0e12f3;
 }
 
-.box input[type="submit"] {
+.box button[type="submit"] {
     background: #0008ff38;
     display: block;
     margin: 20px auto;
@@ -95,7 +95,7 @@ img#m1 {
     font-family: monospace;
 }
 
-.box input[type="submit"]:hover {
+.box button[type="submit"]:hover {
     background: #6d0714ce;
     border: 2px solid rgba(255, 0, 0, 0.712);
     color: blue;

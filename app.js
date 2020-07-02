@@ -15,12 +15,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-app.use(function(req, res, next) {
-    console.log(req.session);
 
-    next();
-})
-app.listen(9000, function() {
+app.listen(8080, function() {
     console.log("it is ready:9000");
 });
 //() for run function creat admin1
@@ -39,9 +35,9 @@ app.use('/', abirout)
 app.use(function(err, req, res, next) {
     res.status(500).send('ssa' + err)
 });
-//set views(folder)
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 
 //set public(folder)

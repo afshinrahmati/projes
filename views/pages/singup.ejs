@@ -39,28 +39,30 @@
 
                 <div class="chc" style="text-align: right;">
 
-                    <img src="/css/man.png" style="text-align: right;">
-                    <input type="checkbox" name="male" id="myCheck">
-                    <label for="male" style="color: whitesmoke;">مرد</label><br>
+                    <div class="chc" style="text-align: right;">
+                        <img src="/css/man.png" style="text-align: right;">
+                        <input type="checkbox" name="male" id="myCheck">
+                        <label for="male" style="color: whitesmoke;">مرد</label><br>
 
 
 
-                    <img src="/css/woman.png" style="text-align: right;">
-                    <input type="checkbox" name="female" id="mychi">
-                    <label for="female" style="color: whitesmoke;">  زن</label><br>
+                        <img src="/css/woman.png" style="text-align: right;">
+                        <input type="checkbox" name="male" id="mychi">
+                        <label for="male" style="color: whitesmoke;">زن</label><br>
 
 
-                </div>
-
-
-
-                <div class="clearfix">
-                    <button class="signupbtn" id="signupbtn" style="outline: none;">ثبت نام</button>
-                    <button type="button" style="outline: none;" onclick="document.getElementById('id01').style.display='none', location.reload(30);" class="cancelbtn">منصرف</button>
-
+                    </div>
                 </div>
             </div>
+
+
+            <div class="clearfix">
+                <button class="signupbtn" id="signupbtn" style="outline: none;">ثبت نام</button>
+                <button type="button" style="outline: none;" onclick="document.getElementById('id01').style.display='none', location.reload(30);" class="cancelbtn">منصرف</button>
+
+            </div>
         </div>
+    </div>
     </div>
     <div class="text-3d" id="logg"> ورود</div>
     <a href="login"> <img src="/css/Login-icon.png" class="vert-move" id="log"></a>
@@ -73,6 +75,15 @@
 
 </body>
 <script>
+    let x = {
+        "firstname": "",
+        "lastname": "",
+        "userName": "",
+        "password": "",
+        "mobile": "",
+        "role": "",
+        "sex": ""
+    }
     $(function() {
         // open
         let modal = document.getElementById('id01');
@@ -80,13 +91,13 @@
 
 
         $("#signupbtn").on("click", function() {
-            let d1 = $('#d1').val();
-            let d2 = $("#d2").val();
-            let d3 = $("#d3").val();
-            let d4 = $("#d4").val();
-            let d5 = $("#d5").val();
-            let select = $(".form-control").val();
-            let man1 = [];
+            x.firstname = $('#d1').val();
+            x.lastname = $("#d2").val();
+            x.userName = $("#d3").val();
+            x.password = $("#d4").val();
+            x.mobile = $("#d5").val();
+            x.role = $(".form-control").val();
+            x.sex = [];
 
 
             // chekBOX
@@ -103,58 +114,43 @@
                 return;
             }
             if (man.checked == true) {
-                let man = "male";
-                man1.push(man);
+                x.sex = "male";
             }
             if (woman.checked == true) {
-                let woman = "female";
-                man1.push(woman);
+                x.sex = "female";
             }
-            if (d1 === "" || d2 === "" || d3 === "") {
+            if (x.firstname === "" || x.lastname === "" || x.userName === "") {
                 alert("فایل نام یا نام خانوادگی یا نام کاربری خالی میباشد");
 
                 event.preventDefault();
                 return;
 
             }
-            if (d4 === "") {
-                alert('فایل پسورد اشتباه است!');
 
-                return;
-
-
-            }
-            if (d5 === "") {
+            if (x.mobile === "") {
                 alert("شماره تلفن اشتباه است!");
 
                 return;
 
             }
-            if (d4.length < 9) {
+            if (x.password < 9) {
                 alert("رمز باید بیشتر از ۸ باشد");
 
                 return;
             }
 
-            $.post({
+            $.ajax({
+                type: "POST",
                 url: "/record",
-                contentType: 'application/json',
-                dataType: 'json',
-                data: JSON.stringify({
-                    "firstname": d1,
-                    "lastname": d2,
-                    "userName": d3,
-                    "password": d4,
-                    "mobile": d5,
-                    "role": select,
-                    "sex": man1
-                }),
-                success: function(src) {
-                    $("input").val() = "";
-                },
-                error: function(err) {
-                    alert(err.responseText);
+                data: x,
+                success: function(response) {
 
+                    window.location.href = "/login";
+                },
+
+                error: function(err) {
+                    console.log(err);
+                    alert(err.responseText)
 
                 }
             });

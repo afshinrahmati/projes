@@ -12,14 +12,13 @@
 <body>
 
 
-    <div class="shadow">Welcom</div>
-    <form action="/entrans" method="POST">
+    <div class="box">
+        <div class="shadow">Welcom</div>
         <input type="text" name="userName" placeholder="نام کاربری" id="userlog">
         <input type="password" name="password" placeholder="رمز عبور" id="passlog">
-        <button type="submit" value="Login" id="butlog">sing in</button>
-
-    </form>
-
+        <button type="submit" value="Login" id="butlog" class="bt1">sing in</button>
+        <p class="err" style="color: rgb(255, 208, 0);"></p>
+    </div>
     <a href="http:/singup"><img src="/css/login/back-arrow.png" id="m1"></a>
 
     <canvas id="nokey" width="800" height="800">
@@ -32,9 +31,32 @@
 
 </body>
 <script>
-    $(function() {
-        $('form').on('submit', event => {
-            event.preventDefault();
+    let x = {
+        "userName": "",
+        "password": ""
+    }
+    $('.bt1').on('click', function() {
+        x.userName = $('#userlog').val();
+        x.password = $('#passlog').val();
+        if (x.userName === "" || x.password === "") {
+            alert("لطفا فیلد هارا پرنمایید");
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/entrans",
+            data: x,
+            success: function(src) {
+                window.location.href = "./pages/dashpord.ejs";
+            },
+
+            error: function(err) {
+                alert(err.responseText);
+
+
+
+            }
         })
     });
 </script> -->
