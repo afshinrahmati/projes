@@ -4,6 +4,15 @@ body {
     background-size: cover;
 }
 
+img#m1 {
+    position: absolute;
+    width: 3%;
+    background: red;
+    border-radius: 144px;
+    margin-top: 15px;
+    margin-left: -80%;
+}
+
 * {
     box-sizing: border-box;
 }

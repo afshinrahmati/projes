@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/css/sun.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
     <link rel="stylesheet" href="/css/login/login.css">
@@ -13,9 +14,11 @@
 
 
     <div class="box">
+
         <div class="shadow">Welcom</div>
         <input type="text" name="userName" placeholder="نام کاربری" id="userlog">
         <input type="password" name="password" placeholder="رمز عبور" id="passlog">
+
         <button type="submit" value="Login" id="butlog" class="bt1">sing in</button>
         <p class="err" style="color: rgb(255, 208, 0);"></p>
     </div>
@@ -48,13 +51,11 @@
             url: "/entrans",
             data: x,
             success: function(src) {
-                window.location.href = "./pages/dashpord.ejs";
+                window.location.href = "/dash";
             },
 
             error: function(err) {
                 alert(err.responseText);
-
-
 
             }
         })

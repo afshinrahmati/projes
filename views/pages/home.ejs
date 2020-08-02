@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<title>Afshinrahmati</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="/css/daniil-silantev-F6Da4r2x5to-unsplash.jpg">
+<link rel="shortcut icon" href="/css/sun.png" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<style>
+    body,
+    #h1 {
+        font-family: "Raleway", sans-serif
+    }
+    
+    body,
+    html {
+        height: 100%;
+        background: #f4f1e5;
+        color: #544738;
+        font-family: "Open Sans", arial;
+        background: rgb(62, 189, 162);
+        background: #ee9ca7;
+        background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);
+        background: linear-gradient(to right, #ffdde1, #ee9ca7);
+        color: #fff;
+        font-weight: 300;
+    }
+    
+    .bgimg {
+        background-image: url('/css/daniil-silantev-F6Da4r2x5to-unsplash.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    nav {
+        background: #2c6514;
+        position: absolute;
+        top: 0;
+        overflow: hidden;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        -webkit-transition: width .2s linear;
+        transition: width .2s linear;
+        width: 5%;
+    }
+    
+    a {
+        position: relative;
+        text-decoration: none;
+        color: white;
+        font-size: 13px;
+        border-top: 1px solid #03A2A2;
+        display: table;
+        width: 250px;
+    }
+    
+    .fa {
+        position: relative;
+        width: 70px;
+        height: 36px;
+        text-align: center;
+        top: 12px;
+        font-size: 20px;
+    }
+    
+    nav .nav-text {
+        position: relative;
+        top: 12px;
+    }
+    
+    a:hover {
+        color: #fff;
+        width: 250px;
+        background-color: #3863F4;
+    }
+</style>
+
+<body>
+
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+
+        <nav>
+
+            <a href=" ">
+                <i class="fa fa-home fa-lg"></i>
+                <span class="nav-text">Home</span>
+            </a>
+
+            <a href="/singup">
+                <i style="font-size:24px" class="fa">&#xf135;</i>
+                <span>login/singup</span>
+            </a>
+
+            <a href="/dash">
+
+                <img src="human.png" alt="" id="h1" srcset="" style="font-size:24px;width: 29px;margin-top: 5px;margin-left: 20px;">
+                <span class="nav-text" id="h2" style="margin-left: 32px;top: 5px;">Profile</span>
+            </a>
+            <i class="fa fa-chevron-circle-right" id="d1" style="font-size:36px"></i><br>
+            <i class="fa fa-chevron-circle-left" id="d2" style="font-size:36px"></i>
+        </nav>
+        <div class="w3-display-middle">
+            <h1 id="h1" class="w3-jumbo w3-animate-top">welcome</h1>
+            <hr class="w3-border-grey" style="margin:auto;width:40%">
+            <p class="w3-large w3-center">please come with me</p>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#d2").hide();
+
+            $("#d1").click(function() {
+                $("#d2").show();
+                $("#d1").hide(1000);
+                $("nav").css("width", "250px");
+
+            });
+            $("#d2").click(function() {
+                $("#d1").show(1000);
+                $("#d2").hide(1000);
+                $("nav").css("width", "5%");
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>
