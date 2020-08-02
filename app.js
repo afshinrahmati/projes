@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session');
 const path = require('path');
 const multer = require('multer');
-const Article = require('./models/article')
+const Auser = require('./models/users')
     //body parser
 app.use(express.json());
 app.use(express.urlencoded({
@@ -48,49 +48,47 @@ app.use(function(err, req, res, next) {
 
 
 const storage = multer.diskStorage({
-    destination: './public/upload',
-    filename: function(req, file, cd) {
-        cd(null, file.originalname)
+    destination: function(req, file, cb) {
+        cb(null, 'public/upload')
+    },
+    filename: function(req, file, cb) {
+        cb(null, "sasa.png")
     }
 });
-const upload = multer({
+const uploadavata = multer({
     storage: storage
-        // limits: {
-        //     fileSize: 1000000
-        // }
 
-}).single('myimage')
+});
 
-app.post('/upload', function(req, res) {
+app.post('/upload', async(req, res) => {
+        try {
+            const upload = uploadavata.single("myimage")
+            upload(req, res, async(err) => {
+                console.log(req.body);
+                console.log(req.file);
 
-        upload(req, res, (err) => {
-            console.log(req.body);
-            console.log(req.file);
+                if (err) {
+                    console.log("err");
+                    res.send('somthin moshkel')
 
-            if (err) {
-                res.render('index', {
-                    msg: err
+                } else {
+                    let article = await Auser.findByIdAndUpdate({ _id: "5f10066038f653219f02b1a2" }, { avatar: "sasa.png" }, { new: true });
 
-                })
-            } else {
-                const article = new Article({
-                    username: req.body.username,
-                    text: req.body.matn,
-                    img: req.file.filename
-                });
-                article.save(function(err, articless) {
-                    // console.log(articless);
-                    if (err) {
-                        res.send("ERRPR in images" + err)
-                    } else {
-                        return res.json(articless);
-
+                    if (!article) {
+                        throw new Error("something went wrong")
                     }
-                })
-            }
-        });
-    })
-    //post upload
+                    res.json(article)
+
+                }
+            });
+
+        } catch (error) {
+            // console.log(error.message);
+            res.send(error.message)
+
+        }
+
+    }) //post upload
 
 
 

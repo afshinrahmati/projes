@@ -52,6 +52,10 @@ const userschema = new Schema({
             type: Date,
             required: true,
             default: Date.now
+        },
+        avatar: {
+            type: String,
+
         }
 
 
